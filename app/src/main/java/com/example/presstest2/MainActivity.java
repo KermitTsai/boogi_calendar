@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         //------childView (eventTitle and eventDateTime)-----------------
 
         //eventDataControl (要再加年份去做設定迴圈)
-        String[] Title = {"Burger","Machurain","Sandwich"};
+        String[] Title = {"711打工","微積分","約會"};
         String[] EventTime = {"8:00-9:00","10:00-16:00","19:00-20:00"};
-        String[] eventKind = {"work","course","work"};
+        String[] eventKind = {"work","course","schedule"};
 
         //eventKindGraph and tag
-        int[] kindOfEventG = {R.drawable.course,R.drawable.ic_work,R.drawable.event};
+        int[] kindOfEventG = {R.drawable.course,R.drawable.work,R.drawable.schedule};
         String[] tag = {"course","work","schedule"};
 
         //to Control null condition
@@ -129,9 +129,12 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
 //            }
 //        });
 
-        //------set FAB null to set background(selector)--------------------------
+//------set FAB null to set background(selector)--------------------------
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+        //to set "add sign"
         floatingActionButton.setImageTintList(null);
+        //to set "FAB" ring color
+        floatingActionButton.setBackgroundTintList(null);
         //------set FAB null to set background(selector)--------------------------
 
         //------set Button null to set background--------------------------
