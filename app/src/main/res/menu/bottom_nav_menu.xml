@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/miSetting"
+        android:title="設定"
+        android:icon="@drawable/ic_settings"
+        android:color="@color/black"/>
+
+    <item android:id="@+id/miMerge"
+        android:title="合併"
+        android:icon="@drawable/ic_merge"/>
+
+
+    <item android:id="@+id/miShare"
+        android:title="分享"
+        android:icon="@drawable/ic_share"/>
+
+
+    <item android:id="@+id/miMoney"
+        android:title="薪水"
+        android:icon="@drawable/ic_money"/>
+
+    <item android:id="@+id/placeholder"
+        android:title=""/>
+
+</menu>
