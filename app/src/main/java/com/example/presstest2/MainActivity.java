@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     LinearLayout layout;
     //control calendar bg
     AppBarLayout appBarLayout;
-    int duplicate_tag_home;
+
 
 
 
@@ -136,19 +136,15 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         //------set bottomAppBar null to set background(selector)--------------------------
         //        控制功能列
         bottomNavigationView.setSelectedItemId(R.id.miHome);
-        duplicate_tag_home=0;
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.miHome:
-                        if(duplicate_tag_home==0){
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            overridePendingTransition(0,0);
-                            duplicate_tag_home=1;
-                            return true;
-
-                        }
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
 
                     case R.id.miSetting:
                         startActivity(new Intent(getApplicationContext(),settings.class));

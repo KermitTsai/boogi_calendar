@@ -53,23 +53,11 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
     {
 
-//        movingHighlighter
-        final LocalDate date = days.get(position);
-        if(date==null)
-            holder.dayOfMonth.setText("");
-        else{
-            holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
-            if(date.equals(CalendarUtils.selectedDate)){
-                //holder.parentView.setBackgroundColor(Color.LTGRAY);灰色
-//                holder.parentView.setBackgroundResource(R.drawable.indicator2);
-//                holder.cellTextView.setTextColor(Color.rgb(255,255,255));
-            }
-        }
+
 
 //        currentDayHighlighter
-        String location = CalendarUtils.daysInMonthArray2(CalendarUtils.selectedDate).get(position);
+        String location;
         LocalDate nowDate = LocalDate.now();
-
         DateTimeFormatter nowDay = DateTimeFormatter.ofPattern("dd ");
         String currentDay = nowDate.format(nowDay);
         DateTimeFormatter nowMonth = DateTimeFormatter.ofPattern("MM");
@@ -81,13 +69,35 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         pageMonth =CalendarUtils.selectedDate.format(floatingMonth);
         DateTimeFormatter floatingYear = DateTimeFormatter.ofPattern("yyyy");
         pageYear =CalendarUtils.selectedDate.format(floatingYear);
+        String tag="A";
+        if(currentDay.startsWith("0"))//解決藍點1~9日不顯示問題
+        {
 
+            location = "0"+CalendarUtils.daysInMonthArray2(CalendarUtils.selectedDate).get(position);
+            tag="B";
+        }
+        else{
+            location = CalendarUtils.daysInMonthArray2(CalendarUtils.selectedDate).get(position);
+        }
 
         if (pageYear.equals(currentYear)&&pageMonth.equals(currentMonth))
             if (location.equals(currentDay)){
                 holder.parentView.setBackgroundResource(R.drawable.indicator1);
                 holder.cellTextView.setTextColor(Color.rgb(255,255,255));
             }
+
+        //        movingHighlighter
+        final LocalDate date = days.get(position);
+        if(date==null)
+            holder.dayOfMonth.setText("");
+        else{
+            holder.dayOfMonth.setText(location);
+            if(date.equals(CalendarUtils.selectedDate)){
+                //holder.parentView.setBackgroundColor(Color.LTGRAY);灰色
+//                holder.parentView.setBackgroundResource(R.drawable.indicator2);
+//                holder.cellTextView.setTextColor(Color.rgb(255,255,255));
+            }
+        }
 
     }
 
