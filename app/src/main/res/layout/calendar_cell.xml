@@ -2,8 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/parentView"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:orientation="vertical"
+            android:id="@+id/parentView"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -19,6 +30,12 @@
             app:layout_constraintLeft_toLeftOf="parent"
 
             />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+
 
 
 
