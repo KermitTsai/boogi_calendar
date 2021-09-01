@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/miSetting"
-        android:title="設定"
-        android:icon="@drawable/ic_settings"
-        android:color="@color/black"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <item android:id="@+id/miHome"
+        android:title="主頁"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"
+        />
 
     <item android:id="@+id/miMerge"
-        android:title="合併"
-        android:icon="@drawable/ic_merge"/>
+        android:title="排程"
+        android:icon="@drawable/ic_merge"
+        app:showAsAction="always"
+        />
 
 
     <item android:id="@+id/miShare"
         android:title="分享"
-        android:icon="@drawable/ic_share"/>
+        android:icon="@drawable/ic_share"
+        app:showAsAction="always"
+        />
 
 
-    <item android:id="@+id/miMoney"
-        android:title="薪水"
-        android:icon="@drawable/ic_money"/>
+    <item android:id="@+id/miSetting"
+        android:title="設定"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always"
+        />
 
     <item android:id="@+id/placeholder"
         android:title=""/>

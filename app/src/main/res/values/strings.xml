@@ -8,7 +8,7 @@
     <string name="pre"><![CDATA[<]]></string>
     <string name="next"><![CDATA[>]]></string>
 
-<!--ToolBar-->
+    <!--ToolBar-->
     <string name="setting_str">Setting</string>
     <string name="merge_str">Merge</string>
     <string name="salary_str">Salary</string>

@@ -2,8 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.PressTest2" parent="Theme.MaterialComponents.Light.NoActionBar">
 <!--控制通知欄and ActionBar-->
-        <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+
 
     </style>
 <!--bottom app bar textSize-->

@@ -3,7 +3,9 @@ package com.example.presstest2;
 import static com.example.presstest2.CalendarUtils.daysInMonthArray;
 import static com.example.presstest2.CalendarUtils.daysInMonthArray2;
 import static com.example.presstest2.CalendarUtils.monthYearFromDate;
+import static com.example.presstest2.CalendarViewHolder.addView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,10 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,12 +45,26 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     RecyclerView RVparent;
     //------eventView------
 
+    //test
+    FloatingActionButton addImage;
+    LinearLayout layout;
+    //control calendar bg
+    AppBarLayout appBarLayout;
+    int duplicate_tag_home;
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SysApplication.getInstance().addActivity(this);//為了儲存現在有多少activity
 
         //------eventControl------
         RVparent = findViewById(R.id.RVparent);
@@ -68,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         //------parentView (whenday and date)---------------------------
 
         //------childView (eventTitle and eventDateTime)-----------------
-
         //eventDataControl (要再加年份去做設定迴圈)
         String[] Title = {"711打工","微積分","約會"};
         String[] EventTime = {"8:00-9:00","10:00-16:00","19:00-20:00"};
@@ -112,24 +132,38 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.setItemIconTintList(null);
+
         //------set bottomAppBar null to set background(selector)--------------------------
         //        控制功能列
-//        bottomNavigationView.setSelectedItemId(R.id.home);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch(item.getItemId()){
-//                    case R.id.home:
-//
-//
-//
-//
-//                }
-//                return false;
-//            }
-//        });
+        bottomNavigationView.setSelectedItemId(R.id.miHome);
+        duplicate_tag_home=0;
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId()){
+                    case R.id.miHome:
+                        if(duplicate_tag_home==0){
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            overridePendingTransition(0,0);
+                            duplicate_tag_home=1;
+                            return true;
 
-//------set FAB null to set background(selector)--------------------------
+                        }
+
+                    case R.id.miSetting:
+                        startActivity(new Intent(getApplicationContext(),settings.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.placeholder:
+                        return false;
+
+                }
+                return false;
+            }
+        });
+
+        //------set FAB null to set background(selector)--------------------------
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
         //to set "add sign"
         floatingActionButton.setImageTintList(null);
@@ -144,11 +178,38 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         bl.setBackgroundTintList(null);
         //------set Button null to set background--------------------------
 
+        //test
+//        addImage = findViewById(R.id.addImage);
+//        layout = findViewById(R.id.layout);
+//        addImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ImageView imageView = new ImageView(MainActivity.this);
+//                imageView.setImageResource(R.drawable.ic_dot);
+//
+////                addView(imageView,LinearLayout.LayoutParams.WRAP_CONTENT,200);
+//                addView(imageView,5,5);
+//
+//            }
+//        });
+        //------set appBarLayout null to set background--------------------------
+        appBarLayout = findViewById(R.id.appbar);
+        appBarLayout.setBackgroundTintList(null);
+
+
+        //------set Button null to set background--------------------------------
+
+
+
+
+
 
         //get now time
         CalendarUtils.selectedDate= LocalDate.now();
         initWidgets();
         setMonthView();
+
+
     }
 
     private void initWidgets()
@@ -194,6 +255,14 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             CalendarUtils.selectedDate =date;
             setMonthView();
         }
+    }
+
+//    設定返回鍵
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return false;
     }
 
 //    unused code(weekView

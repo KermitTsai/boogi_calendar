@@ -6,16 +6,24 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Random;
 
 class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 {
+    FloatingActionButton addImage;
+    LinearLayout layout;
     private final ArrayList<LocalDate> days;
     private final OnItemListener onItemListener;
     private String pageMonth;
@@ -44,43 +52,25 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
     @Override
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
     {
-//        final String location = CalendarUtils.daysInMonthArray2(CalendarUtils.selectedDate).get(position);
-//        LocalDate nowDate = LocalDate.now();
-//        DateTimeFormatter nowDay = DateTimeFormatter.ofPattern("dd");
-//        String currentDay = nowDate.format(nowDay);
-//        DateTimeFormatter nowMonth = DateTimeFormatter.ofPattern("MM");
-//        String currentMonth = nowDate.format(nowMonth);
-//        DateTimeFormatter floatingMonth = DateTimeFormatter.ofPattern("MM");
-//        pageMonth =CalendarUtils.selectedDate.format(floatingMonth);
-//        if (pageMonth.equals(currentMonth))
-//            if (location.equals(currentDay)){
-//                holder.parentView.setBackgroundResource(R.drawable.indicator1);
-//                holder.cellTextView.setTextColor(Color.rgb(255,255,255));
-//
-//            }
 
 //        movingHighlighter
         final LocalDate date = days.get(position);
-        int loc = 0;
         if(date==null)
             holder.dayOfMonth.setText("");
         else{
             holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
             if(date.equals(CalendarUtils.selectedDate)){
-                //holder.parentView.setBackgroundColor(Color.LTGRAY);
-                holder.parentView.setBackgroundResource(R.drawable.indicator2);
-                holder.cellTextView.setTextColor(Color.rgb(255,255,255));
+                //holder.parentView.setBackgroundColor(Color.LTGRAY);灰色
+//                holder.parentView.setBackgroundResource(R.drawable.indicator2);
+//                holder.cellTextView.setTextColor(Color.rgb(255,255,255));
             }
-
-
-
         }
 
 //        currentDayHighlighter
         String location = CalendarUtils.daysInMonthArray2(CalendarUtils.selectedDate).get(position);
         LocalDate nowDate = LocalDate.now();
 
-        DateTimeFormatter nowDay = DateTimeFormatter.ofPattern("dd");
+        DateTimeFormatter nowDay = DateTimeFormatter.ofPattern("dd ");
         String currentDay = nowDate.format(nowDay);
         DateTimeFormatter nowMonth = DateTimeFormatter.ofPattern("MM");
         String currentMonth = nowDate.format(nowMonth);
@@ -98,7 +88,10 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
                 holder.parentView.setBackgroundResource(R.drawable.indicator1);
                 holder.cellTextView.setTextColor(Color.rgb(255,255,255));
             }
+
     }
+
+
 
     @Override
     public int getItemCount()
@@ -111,17 +104,10 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         void onItemClick(int position,LocalDate date);
     }
 
-    private String Conversion(LocalDate date,String kind){
-        if(kind.equals("dd")) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd");
-            return date.format(formatter);
-        }
-        if(kind.equals("MM")){
-            DateTimeFormatter formatter2=DateTimeFormatter.ofPattern("dd");
-            return date.format(formatter2);
-        }
-        return null;
-    }
+
+
+
+
 
 
 }
