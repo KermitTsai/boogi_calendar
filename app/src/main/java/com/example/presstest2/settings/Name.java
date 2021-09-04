@@ -1,4 +1,4 @@
-package com.example.presstest2;
+package com.example.presstest2.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.presstest2.R;
+import com.example.presstest2.control_act.SysApplication;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -65,7 +67,7 @@ public class Name extends AppCompatActivity {
                             return;
                         }
                         Toast.makeText(Name.this,"更新完成",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), settings.class));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -99,10 +101,28 @@ public class Name extends AppCompatActivity {
                 _email_name.setText(documentSnapshot.getString("email"));
             }
         });
+
+        //以控制返回不會退出程式
+        Button back=findViewById(R.id.name_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Name.this,settings.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
-    public void back(View view){
-        Intent intent = new Intent(this,settings.class);
-        startActivity(intent);
+    //if pressed back button one time,back to the previous activity
+
+    int counter = 0;
+
+    @Override
+    public void onBackPressed() {
+        counter++;
+        if(counter == 1){
+            super.onBackPressed();
+        }
     }
 }

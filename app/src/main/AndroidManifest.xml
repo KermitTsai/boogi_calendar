@@ -3,8 +3,8 @@
     package="com.example.presstest2">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,23 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PressTest2">
-        <activity android:name=".ResetPasswordSuccess" />
-        <activity android:name=".ForgetPassword" />
-        <activity android:name=".Login" />
-        <activity android:name=".Register" />
-        <activity android:name=".Name" />
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".PassEmail" />
-        <activity android:name=".Verify" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".FirstPage.ResetPasswordSuccess" />
+        <activity android:name=".FirstPage.ForgetPassword" />
+        <activity android:name=".FirstPage.Login" />
+        <activity android:name=".FirstPage.Register" />
+        <activity android:name=".settings.Name" />
+        <activity android:name=".settings.ChangePassword" />
+        <activity android:name=".settings.PassEmail" />
+        <activity android:name=".FirstPage.Verify" />
+        <activity android:name=".calendar.MainActivity" />
         <activity
-            android:name=".settings"
+            android:name=".settings.settings"
             android:exported="true" />
         <activity
-            android:name=".WeekViewActivity"
+            android:name=".calendar.WeekViewActivity"
             android:exported="true" />
         <activity
-            android:name=".FirstPage"
+            android:name=".FirstPage.FirstPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,9 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Theme.AppCompat.Light"/>
-
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
     </application>
 
 </manifest>

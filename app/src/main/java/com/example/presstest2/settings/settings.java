@@ -1,14 +1,10 @@
-package com.example.presstest2;
+package com.example.presstest2.settings;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.presstest2.FirstPage.FirstPage;
+import com.example.presstest2.calendar.MainActivity;
+import com.example.presstest2.R;
+import com.example.presstest2.control_act.SysApplication;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,8 +41,6 @@ import com.google.firebase.firestore.WriteBatch;
 
 import static android.content.ContentValues.TAG;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -75,14 +73,13 @@ public class settings extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.miHome:
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
+
                         return true;
 
                     case R.id.miSetting:
-                        startActivity(new Intent(getApplicationContext(),settings.class));
-                        overridePendingTransition(0,0);
-                        return true;
+                        return false;
 
                     case R.id.placeholder:
                         return false;
@@ -179,7 +176,18 @@ public class settings extends AppCompatActivity {
 
 
     }
-//控制頭貼
+
+    int counter = 0 ;
+
+    @Override
+    public void onBackPressed() {
+        counter++;
+        if(counter == 1){
+            super.onBackPressed();
+        }
+    }
+
+    //控制頭貼
     private void startCropActivity(){
         CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).setCropShape(CropImageView.CropShape.OVAL).setFixAspectRatio(true).start(this);
     }
@@ -236,7 +244,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
                 .signOut().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                startActivity(new Intent(view.getContext(),FirstPage.class));
+                startActivity(new Intent(view.getContext(), FirstPage.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -250,19 +258,22 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 
 
     public void name(View view){
-        Intent intent = new Intent(this,Name.class);
+        Intent intent = new Intent(this, Name.class);
         startActivity(intent);
+        finish();
+
     }
 
     public void changepassword(View view){
-        Intent intent = new Intent(this,ChangePassword.class);
+        Intent intent = new Intent(this, ChangePassword.class);
         startActivity(intent);
+        finish();
     }
-//    禁用返回鍵
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return true;
-        }
-        return false;
-    }
+////    禁用返回鍵
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            return true;
+//        }
+//        return false;
+//    }
 }

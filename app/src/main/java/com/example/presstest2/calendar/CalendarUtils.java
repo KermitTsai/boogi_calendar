@@ -1,4 +1,4 @@
-package com.example.presstest2;
+package com.example.presstest2.calendar;
 
 
 import java.time.DayOfWeek;
@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class CalendarUtils
 {

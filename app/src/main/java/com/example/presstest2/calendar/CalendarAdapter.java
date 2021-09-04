@@ -1,4 +1,4 @@
-package com.example.presstest2;
+package com.example.presstest2.calendar;
 
 
 
@@ -6,19 +6,15 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.presstest2.R;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Random;
 
 class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 {

@@ -1,4 +1,4 @@
-package com.example.presstest2;
+package com.example.presstest2.FirstPage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.presstest2.R;
+import com.example.presstest2.control_act.SysApplication;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,7 +54,7 @@ public class ForgetPassword extends AppCompatActivity {
                 fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        startActivity(new Intent(getApplicationContext(),ResetPasswordSuccess.class));
+                        startActivity(new Intent(getApplicationContext(), ResetPasswordSuccess.class));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -63,5 +65,10 @@ public class ForgetPassword extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void back(View view) {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
     }
 }

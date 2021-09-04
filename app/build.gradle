@@ -49,6 +49,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-firestore:23.0.3'
 
+    //test
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
+
 
 
 

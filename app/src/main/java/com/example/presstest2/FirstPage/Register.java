@@ -1,4 +1,4 @@
-package com.example.presstest2;
+package com.example.presstest2.FirstPage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.presstest2.R;
+import com.example.presstest2.control_act.SysApplication;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -146,10 +148,18 @@ public class Register extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
+
+        //以控制返回不會退出程式
+        Button back=findViewById(R.id.register_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, FirstPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
-    public void back(View view) {
-        Intent intent = new Intent(this,FirstPage.class);
-        startActivity(intent);
-    }
+
 }

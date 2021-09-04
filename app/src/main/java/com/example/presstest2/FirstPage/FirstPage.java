@@ -1,10 +1,9 @@
-package com.example.presstest2;
+package com.example.presstest2.FirstPage;
 
 import android.app.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,10 +18,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.presstest2.calendar.MainActivity;
+import com.example.presstest2.R;
+import com.example.presstest2.control_act.SysApplication;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,7 +44,7 @@ public class FirstPage extends AppCompatActivity {
 
         FirebaseUser user = mAuth.getCurrentUser();
         if(user != null){
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }
     }
@@ -170,13 +171,12 @@ public class FirstPage extends AppCompatActivity {
 
     public void login(View view){
         FirebaseAuth.getInstance().signOut(); //log in
-        startActivity(new Intent(getApplicationContext(),Login.class));
-        finish();
+        startActivity(new Intent(getApplicationContext(), Login.class));
     }
 
     public void register(View view){
         FirebaseAuth.getInstance().signOut(); //register
-        startActivity(new Intent(getApplicationContext(),Register.class));
-        finish();
+        startActivity(new Intent(getApplicationContext(), Register.class));
+
     }
 }

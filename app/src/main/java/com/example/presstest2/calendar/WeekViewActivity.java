@@ -1,7 +1,7 @@
-package com.example.presstest2;
+package com.example.presstest2.calendar;
 
-import static com.example.presstest2.CalendarUtils.daysInWeekArray;
-import static com.example.presstest2.CalendarUtils.monthYearFromDate;
+import static com.example.presstest2.calendar.CalendarUtils.daysInWeekArray;
+import static com.example.presstest2.calendar.CalendarUtils.monthYearFromDate;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.presstest2.R;
+import com.example.presstest2.calendar.CalendarAdapter;
+import com.example.presstest2.calendar.CalendarUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,14 +1,18 @@
-package com.example.presstest2;
+package com.example.presstest2.calendar;
 
 
-import android.graphics.Color;
+
 import android.view.View;
-import android.widget.ImageView;
+
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.example.presstest2.R;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 

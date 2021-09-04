@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="gray">#888</color>
-    <color name="blue">#0000FF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="tiffanyblue">#53D3C3</color>
@@ -9,4 +8,16 @@
     <color name="tiffanybluedark">#25AF9E</color>
     <color name="purple">#CD9FEA</color>
     <color name="bu_gray">#C1BFBF</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="red">#DD0404</color>
+    <color name="orange">#FF9800</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="green">#4CAF50</color>
+    <color name="blue">#03A9F4</color>
+    <color name="navy">#7F34FF</color>
+<!--    checked-->
+    <color name="checked_yello">#FFD166</color>
+    <color name="edit_color">#EDF6F9</color>
+    <color name="del_color">#83C5BE</color>
+
 </resources>

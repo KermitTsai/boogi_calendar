@@ -79,14 +79,14 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/back_name"
+        android:id="@+id/name_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#00FFFFFF"
         android:drawableLeft="@drawable/ic_arrow_l"
-        android:onClick="back"
+
         android:text="設定"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="64dp"
                 android:ems="10"

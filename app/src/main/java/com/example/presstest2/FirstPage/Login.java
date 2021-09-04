@@ -1,4 +1,4 @@
-package com.example.presstest2;
+package com.example.presstest2.FirstPage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.presstest2.calendar.MainActivity;
+import com.example.presstest2.R;
+import com.example.presstest2.control_act.SysApplication;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +27,7 @@ public class Login extends AppCompatActivity {
     TextView mCreateButton, forgetTextLink;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +74,12 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this,"登入成功。",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish();
                         }else{
                             Toast.makeText(Login.this,"Error!" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
+                            finish();
                         }
                     }
                 });
@@ -83,7 +89,7 @@ public class Login extends AppCompatActivity {
         mCreateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Register.class));
+                startActivity(new Intent(getApplicationContext(), Register.class));
             }
         });
 
@@ -93,5 +99,18 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ForgetPassword.class));
             }
         });
+//以控制返回不會退出程式
+        Button back=findViewById(R.id.login_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, FirstPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
+
 }
