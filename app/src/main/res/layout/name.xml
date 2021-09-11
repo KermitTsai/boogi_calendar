@@ -144,34 +144,32 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="64dp"
-                android:hint="姓名"
-                app:hintTextColor="@color/tiffanyblue"
                 android:backgroundTint="@color/tiffanyblue"
-                app:layout_constraintBottom_toTopOf="@+id/bu_name_send"
+                android:hint="姓名"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/tiffanyblue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view"
-                app:startIconDrawable="@drawable/ic_baseline_person_24"
-                app:endIconMode="clear_text">
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:backgroundTint="@color/tiffanyblue"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:textSize="17sp"
                     android:textCursorDrawable="@null"
-                    android:backgroundTint="@color/tiffanyblue"/>
+                    android:textSize="17sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/bu_name_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="64dp"
                 android:backgroundTint="@color/white"
 
                 android:onClick="updatename"

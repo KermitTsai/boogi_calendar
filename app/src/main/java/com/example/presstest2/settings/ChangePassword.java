@@ -54,7 +54,6 @@ public class ChangePassword extends AppCompatActivity {
         SysApplication.getInstance().addActivity(this);//為了儲存現在有多少activity
 
         mEmail = findViewById(R.id.Email);
-        mPassWord = findViewById(R.id.password);
         progressBar = findViewById(R.id.progressBar);
         fAuth = FirebaseAuth.getInstance();
         mGetButton = findViewById(R.id.bu_password_send);
