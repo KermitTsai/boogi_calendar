@@ -16,7 +16,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/constraintLayoutRegister">
 
             <Button
                 android:id="@+id/register_back"
@@ -24,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:backgroundTint="#00FFFFFF"
+                android:backgroundTint="#FFFFFF"
                 android:drawableLeft="@drawable/ic_arrow_l"
                 android:text="回上頁"
                 android:textAlignment="viewStart"
@@ -48,7 +49,6 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:src="@drawable/ic_baseline_person_24"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,6 @@
                     android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
@@ -101,73 +100,126 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/register" />
 
-                    <EditText
-                        android:id="@+id/RegisterfullName"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout1"
+                        style="@style/InputEditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="32dp"
                         android:layout_marginEnd="32dp"
-                        android:ems="10"
                         android:hint="名稱"
-                        android:inputType="textPersonName"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
+                        android:backgroundTint="@color/tiffanyblue"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:startIconDrawable="@drawable/ic_baseline_person_24"
+                        app:hintTextColor="@color/tiffanyblue"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/register" />
+                        app:layout_constraintTop_toBottomOf="@+id/register"
+                        app:endIconMode="clear_text">
 
-                    <EditText
-                        android:id="@+id/Email"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/RegisterfullName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/tiffanyblue"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:padding="10dp"
+                            android:textColor="@color/black"
+                            android:textCursorDrawable="@null"
+                            android:textSize="13sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout2"
+                        style="@style/InputEditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
-                        android:ems="10"
                         android:hint="電子郵件"
-                        android:inputType="textEmailAddress"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
+                        android:backgroundTint="@color/tiffanyblue"
+                        app:startIconDrawable="@drawable/ic_baseline_email_24"
+                        app:hintTextColor="@color/tiffanyblue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RegisterfullName" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout1"
+                        app:endIconMode="clear_text">
 
-                    <EditText
-                        android:id="@+id/RegisterPassword"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textEmailAddress"
+                            android:padding="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:backgroundTint="@color/tiffanyblue"
+                            android:textCursorDrawable="@null"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout3"
+                        style="@style/InputEditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
-                        android:ems="10"
+                        android:backgroundTint="@color/tiffanyblue"
                         android:hint="密碼"
-                        android:inputType="textPassword"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
+                        app:endIconMode="password_toggle"
+                        app:hintTextColor="@color/tiffanyblue"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/Email" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+                        app:startIconDrawable="@drawable/ic_lock">
 
-                    <EditText
-                        android:id="@+id/RegisterConfirmPassword"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/RegisterPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/tiffanyblue"
+                            android:ems="10"
+                            android:inputType="textPassword"
+                            android:padding="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@null"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout4"
+                        style="@style/InputEditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="32dp"
-                        android:ems="10"
                         android:hint="確認密碼"
-                        android:inputType="textPassword"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
+                        android:backgroundTint="@color/tiffanyblue"
+                        app:endIconMode="password_toggle"
+                        app:hintTextColor="@color/tiffanyblue"
+                        app:startIconDrawable="@drawable/ic_outline_lock_24"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RegisterPassword" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/RegisterConfirmPassword"
+                            android:backgroundTint="@color/tiffanyblue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPassword"
+                            android:padding="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@null"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                     <TextView
                         android:id="@+id/textView2"
@@ -194,7 +246,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/RegisterConfirmPassword"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
                         app:strokeColor="@color/bu_gray"
                         app:strokeWidth="2sp" />
 

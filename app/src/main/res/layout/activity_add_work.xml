@@ -1,0 +1,432 @@
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".event.event_today.add_work">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="16dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_work"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/workLayout"
+                style="@style/InputEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/tiffanyblue"
+                android:hint="新增工作名稱"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/tiffanyblue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_work_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_work_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@null" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:id="@+id/view_date_work"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#787777"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/workLayout" />
+
+            <LinearLayout
+                android:id="@+id/LineaLayout_work_YM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_date_work">
+                <TextView
+                    android:id="@+id/singleSelectYear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:paddingLeft="24dp"
+                    android:clickable="true"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:gravity="center"
+                    android:hint="選擇年份"
+                    android:paddingVertical="10dp"
+                    android:text=""
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/singleSelect"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:paddingLeft="24dp"
+                    android:clickable="true"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:gravity="center"
+                    android:hint="選擇月份"
+                    android:paddingVertical="10dp"
+                    android:text=""
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/LineaLayout_work_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/LineaLayout_work_YM">
+
+                <TextView
+                    android:id="@+id/t_big"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:clickable="false"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:gravity="center"
+                    android:hint="選擇日期"
+                    android:paddingVertical="10dp"
+                    android:textSize="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/t_small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:clickable="false"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:gravity="center"
+                    android:hint="選擇日期"
+                    android:paddingVertical="10dp"
+                    android:textSize="20dp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/t_feb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:clickable="false"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:gravity="center"
+                    android:hint="選擇日期"
+                    android:paddingVertical="10dp"
+                    android:textSize="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/t_leapfeb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/editbox_background"
+                    android:clickable="false"
+                    android:drawableRight="@android:drawable/arrow_down_float"
+                    android:gravity="center"
+                    android:hint="選擇日期"
+                    android:paddingVertical="10dp"
+                    android:textSize="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout_work_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LineaLayout_work_day">
+
+                <Button
+                    android:id="@+id/add_work_begintime"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/edit_color"
+                    android:letterSpacing="0.1"
+                    android:onClick="selectBeginTime"
+                    android:hint="開始時段"
+                    android:textColorHint="@color/del_color"
+                    android:textColor="@color/del_color"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/add_work_endtime"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="4dp"
+
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/edit_color"
+                    android:letterSpacing="0.1"
+                    android:onClick="selectEndTime"
+                    android:hint="結束時段"
+                    android:textColorHint="@color/del_color"
+                    android:textColor="@color/del_color"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/work_chooseType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="14dp"
+                android:paddingLeft="24dp"
+                android:background="@android:drawable/editbox_background"
+                android:clickable="true"
+                android:drawableRight="@android:drawable/arrow_down_float"
+                android:gravity="center"
+                android:hint="選取工作型態"
+                android:paddingVertical="10dp"
+                android:textSize="20dp"
+                android:visibility="visible"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LinearLayout_work_time" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/work_chooseType">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/hourLayout"
+                    style="@style/InputEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/tiffanyblue"
+                    android:hint="輸入時薪"
+                    android:visibility="visible"
+                    app:hintTextColor="@color/tiffanyblue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/work_salary_PT"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/tiffanyblue"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:paddingVertical="10dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null"
+                        android:textSize="15dp"
+                        android:visibility="gone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/work_salary_PThour"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:paddingVertical="10dp"
+                    android:singleLine="true"
+                    android:textSize="15dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/hourLayout"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--                <com.google.android.material.textfield.TextInputLayout-->
+                <!--                    android:id="@+id/dayLayout"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dayLayout"
+                    style="@style/InputEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/tiffanyblue"
+                    android:hint="輸入日薪"
+                    android:visibility="gone"
+                    app:hintTextColor="@color/tiffanyblue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/work_salary_Day"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/tiffanyblue"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:paddingVertical="10dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null"
+                        android:textSize="17sp"
+                        android:visibility="gone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/monthLayout"
+                    style="@style/InputEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/tiffanyblue"
+                    android:hint="輸入月薪"
+                    android:visibility="gone"
+                    app:hintTextColor="@color/tiffanyblue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/work_salary_Month"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/tiffanyblue"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:paddingVertical="10dp"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null"
+                        android:textSize="17sp"
+                        android:visibility="gone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_event_secure"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="104dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/tiffanybluedark"
+                android:text="＋確定"
+                android:textSize="17sp"
+                app:cornerRadius="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/work_chooseType" />
+
+            <TextView
+                android:id="@+id/textViewError_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"
+                android:textColor="@color/card2"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/kind_navigation_work"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_event_secure" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/kind_navigation_work"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_alignParentBottom="true"
+                app:itemTextColor="@drawable/menu_item_color"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/round_corner4navigation"
+                app:itemIconSize="30dp"
+                app:itemIconTint="@drawable/item_selector"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_event_secure"
+                app:menu="@menu/navi" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

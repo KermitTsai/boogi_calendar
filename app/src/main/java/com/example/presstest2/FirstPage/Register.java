@@ -1,10 +1,14 @@
 package com.example.presstest2.FirstPage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -13,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.presstest2.R;
 import com.example.presstest2.control_act.SysApplication;
@@ -37,6 +42,7 @@ public class Register extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseFirestore fStore;
     String userId;
+    ConstraintLayout lRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,8 @@ public class Register extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
+
+        lRegister = findViewById(R.id.constraintLayoutRegister);
 
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), Verify.class));
@@ -146,6 +154,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
             }
         });
 
@@ -159,7 +168,34 @@ public class Register extends AppCompatActivity {
                 finish();
             }
         });
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        lRegister.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("TouchEvents","Touch is detected");
+
+                int eventType = event.getActionMasked();
+
+                switch (eventType){
+                    case MotionEvent.ACTION_DOWN:
+                        hideKeyBoard(mFullName);
+                        hideKeyBoard(mEmail);
+                        hideKeyBoard(mPassword);
+                        hideKeyBoard(mConfirmPassword);
+                        break;
+                }
+
+                return true;
+            }
+        });
     }
 
-
+    private void hideKeyBoard(EditText editText) {
+        //initialize input manager
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        //hide soft keyboard
+        manager.hideSoftInputFromWindow(editText.getApplicationWindowToken(),0);
+    }
 }

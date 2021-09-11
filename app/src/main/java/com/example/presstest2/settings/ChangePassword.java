@@ -1,9 +1,14 @@
 package com.example.presstest2.settings;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -13,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.presstest2.R;
 import com.example.presstest2.control_act.SysApplication;
@@ -34,6 +40,7 @@ public class ChangePassword extends AppCompatActivity {
     FirebaseAuth fAuth;
     ProgressBar progressBar;
     TextView _name_password, _email_password;
+    private ConstraintLayout lChangepassword;
 
 
 //    設定頭貼
@@ -51,6 +58,8 @@ public class ChangePassword extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         fAuth = FirebaseAuth.getInstance();
         mGetButton = findViewById(R.id.bu_password_send);
+
+        lChangepassword = findViewById(R.id.constraintLayoutChangepassword);
 
         mGetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +134,26 @@ public class ChangePassword extends AppCompatActivity {
                 finish();
             }
         });
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        lChangepassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("TouchEvents","Touch is detected");
+
+                int eventType = event.getActionMasked();
+
+                switch (eventType){
+                    case MotionEvent.ACTION_DOWN:
+                        hideKeyBoard(mPassWord);
+                        hideKeyBoard(mEmail);
+                        break;  
+                }
+
+                return true;
+            }
+        });
     }
 
     //if pressed back button one time,back to the previous activity
@@ -139,6 +168,19 @@ public class ChangePassword extends AppCompatActivity {
         }
     }
 
+    private void hideKeyBoard(EditText editText) {
+        //initialize input manager
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        //hide soft keyboard
+        manager.hideSoftInputFromWindow(editText.getApplicationWindowToken(),0);
+    }
 
-
+    private void showKeyBoard(EditText editText) {
+        //initialize input manager
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        //show soft keyboard
+        manager.showSoftInput(editText.getRootView(),InputMethodManager.SHOW_IMPLICIT);
+        //focus on edittext
+        editText.requestFocus();
+    }
 }

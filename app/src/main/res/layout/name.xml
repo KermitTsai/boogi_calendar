@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutName"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -135,23 +136,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
-            <EditText
-                android:id="@+id/Name"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameLayout"
+                style="@style/InputEditText"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="64dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:hint="姓名"
+                app:hintTextColor="@color/tiffanyblue"
+                android:backgroundTint="@color/tiffanyblue"
+                app:layout_constraintBottom_toTopOf="@+id/bu_name_send"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:startIconDrawable="@drawable/ic_baseline_person_24"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="17sp"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="@color/tiffanyblue"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/bu_name_send"
@@ -166,7 +180,7 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Name" />
+                app:layout_constraintTop_toBottomOf="@+id/nameLayout" />
 
             <ProgressBar
                 android:id="@+id/progressBar_name"

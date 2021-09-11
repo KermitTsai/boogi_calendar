@@ -39,9 +39,6 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         linearLayout = itemView.findViewById(R.id.linearLayout);
 
 
-
-
-
         this.onItemListener = onItemListener;
         itemView.setOnClickListener(this);
         this.days=days;

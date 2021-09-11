@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".event.event_today.addevent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="16dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/constraintLayoutAddevent">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/eventLayout"
+                style="@style/InputEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/tiffanyblue"
+                android:hint="新增行程名稱"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/tiffanyblue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_event_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_work_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/tiffanyblue"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@null" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:id="@+id/view_date"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#787777"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventLayout" />
+
+
+            <!--日期按鈕-->
+
+
+            <LinearLayout
+                android:id="@+id/LineaLayout_work_YM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_date">
+
+
+                <Button
+                    android:id="@+id/add_event_pickdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/del_color"
+                    android:hint="選擇日期"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:textColorHint="@color/edit_color"
+                    android:textSize="20sp"
+                    android:textColor="@color/edit_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </LinearLayout>
+
+<!--            時段按鈕-->
+            <LinearLayout
+                android:id="@+id/ll_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LineaLayout_work_YM">
+
+                <Button
+                    android:id="@+id/add_event_beginTime"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/edit_color"
+                    android:hint="開始時段"
+                    android:textSize="17sp"
+                    android:onClick="popBeginTime"
+                    android:textColorHint="@color/del_color"
+                    android:textColor="@color/del_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_event_pickdate" />
+
+                <Button
+                    android:id="@+id/add_event_endTime"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/edit_color"
+                    android:hint="結束時段"
+                    android:textColor="@color/del_color"
+                    android:textSize="17sp"
+                    android:onClick="popEndTime"
+                    android:textColorHint="@color/del_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_event_pickdate" />
+
+
+            </LinearLayout>
+
+
+
+            <!--            提醒-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_remind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_time">
+
+                <TextView
+                    android:id="@+id/add_event_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/light_gray"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_baseline_notifications_none_24"
+                    android:gravity="center"
+                    android:hint="提醒"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="40dp"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:iconGravity="textStart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.cardview.widget.CardView>
+            <!--            顏色-->
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv_remind">
+
+                <TextView
+                    android:id="@+id/add_event_chooseColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_palette"
+                    android:gravity="center"
+                    android:hint="選擇顏色"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="40dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/add_event_notification"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_event_secure"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="16dp"
+                app:cornerRadius="45dp"
+                android:backgroundTint="@color/tiffanybluedark"
+
+                android:text="＋確定"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv_color" />
+
+            <TextView
+                android:id="@+id/textViewError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"
+                android:textColor="@color/card2"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/kind_navigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_event_secure" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/kind_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_alignParentBottom="true"
+                app:itemTextColor="@drawable/menu_item_color"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/round_corner4navigation"
+                app:itemIconSize="30dp"
+                app:itemIconTint="@drawable/item_selector"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_event_secure"
+                app:menu="@menu/navi" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

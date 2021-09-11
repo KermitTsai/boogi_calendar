@@ -8,11 +8,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/boogi_icon_full"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/boogi_icon_full_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PressTest2">
+
         <activity android:name=".FirstPage.ResetPasswordSuccess" />
         <activity android:name=".FirstPage.ForgetPassword" />
         <activity android:name=".FirstPage.Login" />
@@ -22,6 +23,11 @@
         <activity android:name=".settings.PassEmail" />
         <activity android:name=".FirstPage.Verify" />
         <activity android:name=".calendar.MainActivity" />
+        <activity android:name=".event.event_today.EventEditActivity" />
+        <activity android:name=".event.event_today.addevent" />
+        <activity android:name=".event.event_today.add_course" />
+        <activity android:name=".event.event_today.add_work" />
+
         <activity
             android:name=".settings.settings"
             android:exported="true" />

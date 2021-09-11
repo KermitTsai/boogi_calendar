@@ -379,7 +379,8 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:background="@color/tiffanybluedark"
-            app:itemTextColor="@drawable/menu_item_color"
+            app:itemTextColor="@drawable/main_menu_item_color"
+            app:itemIconTint="@drawable/item_selector"
             app:menu="@menu/bottom_nav_menu" />
 
 

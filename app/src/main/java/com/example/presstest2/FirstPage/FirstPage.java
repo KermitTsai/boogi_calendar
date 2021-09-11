@@ -96,8 +96,8 @@ public class FirstPage extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
     public void ConfirmExit(){//退出確認
-        AlertDialog.Builder ad=new AlertDialog.Builder(FirstPage.this);
 
+        AlertDialog.Builder ad=new AlertDialog.Builder(FirstPage.this,R.style.WelcomeStyle);
         ad.setTitle("離開");
         ad.setMessage("確定要離開此程式嗎?");
         ad.setPositiveButton("是", new DialogInterface.OnClickListener() {//退出按鈕
@@ -112,6 +112,8 @@ public class FirstPage extends AppCompatActivity {
                 //不退出不用執行任何操作
             }
         });
+        ad.setIcon(R.drawable.boogi_icon);
+ 
         ad.setCancelable(false);//禁用返回
 
         ad.show();//顯示對話框

@@ -4,10 +4,87 @@
 <!--控制通知欄and ActionBar-->
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
-
-
+        <item name="android:timePickerDialogTheme">@style/TimePickerTheme</item>
+        <item name="android:datePickerDialogTheme">@style/DatePickerTheme</item>
+        <item name="android:alertDialogTheme">@style/WelcomeStyle</item>
     </style>
-<!--bottom app bar textSize-->
+    <style name="InputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/tiffanyblue</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="android:textCursorDrawable">@color/tiffanyblue</item>
+    </style>
+
+<!--    <style name="MyTimePickerWidgetStyle" parent="@android:style/Widget.Material.TimePicker">-->
+<!--    <item name="android:headerBackground">#ffe082</item>-->
+<!--    <item name="android:numbersTextColor">#b71c1c</item>-->
+<!--    <item name="android:numbersInnerTextColor">#f44336</item>-->
+<!--    <item name="android:numbersSelectorColor">#33691e</item>-->
+<!--    <item name="android:numbersBackgroundColor">#ef9a9a</item>-->
+<!--    <item name="android:amPmTextColor">#00BCD4</item>-->
+<!--    </style>-->
+<!--    -->
+
+
+<!--datepicker-->
+
+    <style name="DatePickerTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:datePickerDialogTheme">@style/DatePickerTheme</item>
+        <item name="colorAccent">@color/teal_700</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerTheme.ButtonBarNegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerTheme.ButtonBarPositiveButtonStyle</item>
+    </style>
+
+    <style name="DatePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/tiffanybluedark</item>
+    </style>
+    <style name="DatePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/tiffanybluedark</item>
+    </style>
+
+<!--timepicker-->
+    <style name="TimePickerTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorAccent">@color/teal_700</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
+    </style>
+
+    <style name="TimePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/tiffanybluedark</item>
+    </style>
+    <style name="TimePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/tiffanybluedark</item>
+    </style>
+
+<!--AlertDialog-->
+<!--    <style name="AlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">-->
+<!--        <item name="colorAccent">@color/teal_700</item>-->
+<!--        <item name="android:buttonBarNegativeButtonStyle">@style/AlertDialog.ButtonBarNegativeButtonStyle</item>-->
+<!--        <item name="android:buttonBarPositiveButtonStyle">@style/AlertDialog.ButtonBarPositiveButtonStyle</item>-->
+<!--    </style>-->
+<!--    <style name="AlertDialog.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">-->
+<!--        <item name="android:textColor">@color/tiffanybluedark</item>-->
+<!--    </style>-->
+<!--    <style name="AlertDialog.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">-->
+<!--        <item name="android:textColor">@color/tiffanybluedark</item>-->
+<!--    </style>-->
+
+    <style name="WelcomeStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/del_color</item>
+        <item name="android:textColorPrimary">@color/del_color</item>
+<!--        <item name="android:gravity">center</item>-->
+        <item name="android:justificationMode">inter_word</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/tiffanybluedark</item>
+    </style>
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/tiffanybluedark</item>
+    </style>
+
 
 
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/navi_event"
+        android:title="Event"
+        android:icon="@drawable/ic_event_24"/>
+    <item android:id="@+id/navi_course"
+        android:title="Course"
+        android:icon="@drawable/ic_course_book_24"/>
+    <item android:id="@+id/navi_work"
+        android:title="Work"
+        android:icon="@drawable/ic_work_24"/>
+
+
+</menu>

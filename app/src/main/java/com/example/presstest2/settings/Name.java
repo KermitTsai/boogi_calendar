@@ -1,9 +1,14 @@
 package com.example.presstest2.settings;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.presstest2.R;
 import com.example.presstest2.control_act.SysApplication;
@@ -35,6 +41,7 @@ public class Name extends AppCompatActivity {
     private static final String key ="fName";
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
     String userEmail;
+    private ConstraintLayout lName;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -53,6 +60,8 @@ public class Name extends AppCompatActivity {
 
         mName = findViewById(R.id.Name);
         mFinishButton = findViewById(R.id.bu_name_send);
+
+        lName = findViewById(R.id.constraintLayoutName);
 
         mFinishButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -112,6 +121,25 @@ public class Name extends AppCompatActivity {
                 finish();
             }
         });
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        lName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("TouchEvents","Touch is detected");
+
+                int eventType = event.getActionMasked();
+
+                switch (eventType){
+                    case MotionEvent.ACTION_DOWN:
+                        hideKeyBoard(mName);
+                        break;
+                }
+
+                return true;
+            }
+        });
     }
 
     //if pressed back button one time,back to the previous activity
@@ -124,5 +152,12 @@ public class Name extends AppCompatActivity {
         if(counter == 1){
             super.onBackPressed();
         }
+    }
+
+    private void hideKeyBoard(EditText editText) {
+        //initialize input manager
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        //hide soft keyboard
+        manager.hideSoftInputFromWindow(editText.getApplicationWindowToken(),0);
     }
 }

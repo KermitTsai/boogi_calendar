@@ -1,6 +1,7 @@
 package com.example.presstest2.event.event_today;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +16,17 @@ import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.example.presstest2.R;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.EventViewHolder>{
     List<Event_today> mListEvents;
     private ViewBinderHelper viewBinderHelper =new ViewBinderHelper();
 
-    String[] color ={"red","orange","yellow","teal","green","blue","navy","light_purple"};
+
+
+    String[] color ={"red","orange","yellow","teal","green","blue","navy","purple","none"};
 
     public EventAdapter_today(List<Event_today> mListEvents) {
         this.mListEvents = mListEvents;
@@ -37,6 +42,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         Event_today event = mListEvents.get(position);
+
         if(event ==null){
             return;
         }
@@ -44,106 +50,176 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
         viewBinderHelper.bind(holder.swipeRevealLayout, String.valueOf(event.getTime()));
         holder.tvEventTitle.setText(event.getTitle());
         holder.tvEventTime.setText(event.getTime());
+//        holder.tvEventId.setText(event.getId());
         holder.ivEventKind.setBackgroundTintList(null);
+
 
 
         switch (event.getKind()){
             case "Course":
                 holder.ivEventKind.setImageResource(R.drawable.course);
                 switch(event.getColor()){
-                    case "yellow":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFEB3B"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#FFEB3B"));
+                    case "red":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#E5383B"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#E5383B"));
                         break;
+                    case "orange":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#F3722C"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#F3722C"));
+                        break;
+                    case "yellow":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFD166"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#FFD166"));
+                        break;
+                    case "teal":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
                         break;
                     case "blue":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#03A9F4"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#03A9F4"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#4EA8DE"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#4EA8DE"));
                         break;
+                    case "navy":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                    case "purple":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
                     default:
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#53D3C3"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#53D3C3"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 }
                 break;
 
             case "Schedule":
                 holder.ivEventKind.setImageResource(R.drawable.schedule);
                 switch(event.getColor()){
-                    case "yellow":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFEB3B"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#FFEB3B"));
+                    case "red":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#E5383B"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#E5383B"));
                         break;
+                    case "orange":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#F3722C"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#F3722C"));
+                        break;
+                    case "yellow":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFD166"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#FFD166"));
+                        break;
+                    case "teal":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
                         break;
                     case "blue":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#03A9F4"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#03A9F4"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#4EA8DE"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#4EA8DE"));
                         break;
+                    case "navy":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                    case "purple":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
                     default:
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#53D3C3"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#53D3C3"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 }
                 break;
             case "Merge":
                 holder.ivEventKind.setImageResource(R.drawable.work);
                 switch(event.getColor()){
-                    case "yellow":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFEB3B"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#FFEB3B"));
+                    case "red":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#E5383B"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#E5383B"));
                         break;
+                    case "orange":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#F3722C"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#F3722C"));
+                        break;
+                    case "yellow":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFD166"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#FFD166"));
+                        break;
+                    case "teal":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
                         break;
                     case "blue":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#03A9F4"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#03A9F4"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#4EA8DE"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#4EA8DE"));
                         break;
+                    case "navy":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                    case "purple":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
                     default:
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#53D3C3"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#53D3C3"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 }
                 break;
             default:
                 holder.ivEventKind.setImageResource(R.drawable.ic_baseline_person_24);
                 switch(event.getColor()){
-                    case "yellow":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFEB3B"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#FFEB3B"));
+                    case "red":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#E5383B"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#E5383B"));
                         break;
+                    case "orange":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#F3722C"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#F3722C"));
+                        break;
+                    case "yellow":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#FFD166"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#FFD166"));
+                        break;
+                    case "teal":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
                         break;
                     case "blue":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#03A9F4"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#03A9F4"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#4EA8DE"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#4EA8DE"));
                         break;
+                    case "navy":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                    case "purple":
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
                     default:
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#53D3C3"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#53D3C3"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 }
+                break;
         }
 
 
-
-//        holder.layoutDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mListEvents.remove(holder.getAdapterPosition());
-//                notifyItemRemoved(holder.getAdapterPosition());
-//            }
-//        });
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 mListEvents.remove(holder.getAdapterPosition());
                 notifyItemRemoved(holder.getAdapterPosition());
+                notifyItemChanged(holder.getAdapterPosition());
+//                tag_event_position = holder.getAdapterPosition();
+//                Log.i("tag",tag_event_position+"");
+
+
+
             }
         });
         holder.edit.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +250,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
         private TextView edit;
         private TextView delete;
         private ImageView ivEventKind;
+        private TextView tvEventId;
 
         private View vColor;
 
@@ -190,6 +267,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
             tvEventTime = itemView.findViewById(R.id.event_Time);
             ivEventKind = itemView.findViewById(R.id.event_kind);
             vColor = itemView.findViewById(R.id.vColor);
+            tvEventId = itemView.findViewById(R.id.event_id);
 
 
 

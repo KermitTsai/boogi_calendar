@@ -1,9 +1,14 @@
 package com.example.presstest2.FirstPage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -12,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.presstest2.calendar.MainActivity;
 import com.example.presstest2.R;
@@ -27,6 +33,7 @@ public class Login extends AppCompatActivity {
     TextView mCreateButton, forgetTextLink;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
+    ConstraintLayout lLogin;
 
 
     @Override
@@ -42,6 +49,7 @@ public class Login extends AppCompatActivity {
         mLoginButton = findViewById(R.id.loginbutton);
         mCreateButton = findViewById(R.id.Logincreatetext);
         forgetTextLink = findViewById((R.id.LoginforgetPassword));
+        lLogin = findViewById(R.id.constraintLayoutLogin);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +98,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Register.class));
+                finish();
             }
         });
 
@@ -97,6 +106,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ForgetPassword.class));
+                finish();
             }
         });
 //以控制返回不會退出程式
@@ -110,7 +120,31 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        lLogin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("TouchEvents","Touch is detected");
+
+                int eventType = event.getActionMasked();
+
+                switch (eventType){
+                    case MotionEvent.ACTION_DOWN:
+                        hideKeyBoard(mPassword);
+                        hideKeyBoard(mEmail);
+                        break;
+                }
+
+                return true;
+            }
+        });
     }
 
+    private void hideKeyBoard(EditText editText) {
+        //initialize input manager
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        //hide soft keyboard
+        manager.hideSoftInputFromWindow(editText.getApplicationWindowToken(),0);
+    }
 }
