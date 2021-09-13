@@ -284,6 +284,11 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         setEventAdapter();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 
     //---------------------getDataBlock-------------------------------
     private void initWidgets()
