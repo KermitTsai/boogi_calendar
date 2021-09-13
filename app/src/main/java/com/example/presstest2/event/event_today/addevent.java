@@ -2,6 +2,8 @@ package com.example.presstest2.event.event_today;
 
 
 
+import static com.example.presstest2.calendar.MainActivity.adapter_today;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -389,6 +391,7 @@ public class addevent extends AppCompatActivity {
                                 }
                             }
                         });
+
 
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();

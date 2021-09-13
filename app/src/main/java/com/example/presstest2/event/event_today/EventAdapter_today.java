@@ -1,5 +1,7 @@
 package com.example.presstest2.event.event_today;
 
+import static com.example.presstest2.calendar.MainActivity.adapter_today;
+
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,7 +52,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
         viewBinderHelper.bind(holder.swipeRevealLayout, String.valueOf(event.getTime()));
         holder.tvEventTitle.setText(event.getTitle());
         holder.tvEventTime.setText(event.getTime());
-//        holder.tvEventId.setText(event.getId());
+//        holder.tvEventId.setText(event.getColor());
         holder.ivEventKind.setBackgroundTintList(null);
 
 
@@ -224,7 +226,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
             @Override
             public void onClick(View view) {
 
-                mListEvents.remove(holder.getAdapterPosition());
+
                 notifyItemRemoved(holder.getAdapterPosition());
                 notifyItemChanged(holder.getAdapterPosition());
 //                tag_event_position = holder.getAdapterPosition();
@@ -241,7 +243,6 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
 //                notifyItemRemoved(holder.getAdapterPosition());
             }
         });
-
     }
 
     @Override

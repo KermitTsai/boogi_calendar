@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     AppBarLayout appBarLayout;
 
     //test
-    private RecyclerView rcvEventToday;
+    public RecyclerView rcvEventToday;
+    public static EventAdapter_today adapter_today;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -352,8 +353,9 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
 
     private void setEventAdapter() {
         ArrayList<Event_today> dailyEvents =  Event_today.eventsForDate(CalendarUtils.selectedDate);
-        EventAdapter_today adapter_today =new EventAdapter_today(dailyEvents);
+        adapter_today =new EventAdapter_today(dailyEvents);
         rcvEventToday.setAdapter(adapter_today);
+
 
     }
 
