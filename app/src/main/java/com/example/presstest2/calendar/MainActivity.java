@@ -35,6 +35,7 @@ import com.example.presstest2.event.event_today.EventAdapter_today;
 import com.example.presstest2.event.event_today.addevent;
 import com.example.presstest2.event.event_tomorrow.EventAdapter_tomorrow;
 import com.example.presstest2.event.event_tomorrow.Event_tomorrow;
+import com.example.presstest2.merge.MergeMainActivity;
 import com.example.presstest2.settings.settings;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -115,6 +116,11 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
                 switch(item.getItemId()){
                     case R.id.miHome:
                         return true;
+
+                    case R.id.miMerge:
+                        startActivity(new Intent(getApplicationContext(), MergeMainActivity.class));
+                        overridePendingTransition(0,0);
+                        return false;
 
                     case R.id.miSetting:
                         startActivity(new Intent(getApplicationContext(), settings.class));

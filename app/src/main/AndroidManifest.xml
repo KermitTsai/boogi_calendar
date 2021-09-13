@@ -27,6 +27,8 @@
         <activity android:name=".event.event_today.addevent" />
         <activity android:name=".event.event_today.add_course" />
         <activity android:name=".event.event_today.add_work" />
+        <activity android:name=".merge.MergeMainActivity"/>
+        <activity android:name=".merge.MergeActivity"/>
 
         <activity
             android:name=".settings.settings"

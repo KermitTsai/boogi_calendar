@@ -215,7 +215,7 @@ public class add_work extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 indexYear=which;
                             }
-                        }).setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                        }).setPositiveButton(Html.fromHtml("<font color='#53D3C3'>確定</font>"), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 selectYear.setText(yearArray[indexYear]);
@@ -261,10 +261,11 @@ public class add_work extends AppCompatActivity {
 
                                 }
                             }
-                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        }).setNegativeButton(Html.fromHtml("<font color='#53D3C3'>取消</font>"), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //not finish code
+                                dialog.cancel();
                             }
                         });
                 builder.show();

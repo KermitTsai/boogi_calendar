@@ -52,6 +52,7 @@
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_baseline_color_lens_24.xml" value="0.14583333333333334" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.26979166666666665" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.26979166666666665" />
+        <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.146875" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.14583333333333334" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_boogi_svg.xml" value="0.146875" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/drawable/ic_color_lens_24.xml" value="0.26979166666666665" />
@@ -70,6 +71,8 @@
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_addevent.xml" value="0.264" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_event_edit.xml" value="0.2441123188405797" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_main.xml" value="0.2441123188405797" />
+        <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_merge.xml" value="0.24230072463768115" />
+        <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_merge_main.xml" value="0.24230072463768115" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_settings.xml" value="0.2441123188405797" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/activity_week_view.xml" value="0.22509057971014493" />
         <entry key="..\:/ASTEST/calendar0907/app/src/main/res/layout/calendar_cell.xml" value="0.22509057971014493" />
