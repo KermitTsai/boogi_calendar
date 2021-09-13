@@ -74,6 +74,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "teal":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
+                        break;
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
@@ -85,9 +86,11 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "navy":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                        break;
                     case "purple":
-                        holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
-                        holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
+                        holder.ivEventKind.setColorFilter(Color.parseColor("#B185DB"));
+                        holder.vColor.setBackgroundColor(Color.parseColor("#B185DB"));
+                        break;
                     default:
                         holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
@@ -112,6 +115,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "teal":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
+                        break;
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
@@ -123,9 +127,11 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "navy":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                        break;
                     case "purple":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
+                        break;
                     default:
                         holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
@@ -149,6 +155,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "teal":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
+                        break;
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
@@ -160,9 +167,11 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "navy":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                        break;
                     case "purple":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
+                        break;
                     default:
                         holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
@@ -186,6 +195,7 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "teal":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#16CAAF"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#16CAAF"));
+                        break;
                     case "green":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#4CAF50"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#4CAF50"));
@@ -197,9 +207,11 @@ public class EventAdapter_today extends RecyclerView.Adapter<EventAdapter_today.
                     case "navy":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#5192A4"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#5192A4"));
+                        break;
                     case "purple":
                         holder.ivEventKind.setColorFilter(Color.parseColor("#D185DB"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#D185DB"));
+                        break;
                     default:
                         holder.ivEventKind.setColorFilter(Color.parseColor("#BDBDBD"));
                         holder.vColor.setBackgroundColor(Color.parseColor("#BDBDBD"));
